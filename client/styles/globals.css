@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+/* ========================================
+   CUSTOM THEME - Tailwind v4
+   ======================================== */
+@theme {
+  /* Font Family */
+  --font-sans: 'Poppins', system-ui, -apple-system, sans-serif;
+  
+  /* Custom Colors - Palet TarasaBooth */
+  --color-cream-light: #faf8f1;
+  --color-brown-dark: #3c3732;
+  --color-brown-light: #8c8278;
+  --color-accent-primary: #c8a078;
+  --color-accent-hover: #b48c64;
+  
+  /* SpacingCustom (jika diperlukan) */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--color-cream-light);
+  color: var(--color-brown-dark);
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-sans);
+}
+
+/* ========================================
+   CUSTOM UTILITIES & ANIMATIONS
+   ======================================== */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Animasi untuk flash effect saat foto diambil */
+@keyframes flash {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Hover effect untuk kartu/item */
+.hover-scale {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-scale:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth transitions */
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  #print-area,
+  #print-area * {
+    visibility: visible;
+  }
+  
+  #print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+  
+  button,
+  .no-print {
+    display: none !important;
+  }
+}
