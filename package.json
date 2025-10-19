@@ -1,0 +1,16 @@
+{
+  "name": "tarasabooth-project",
+  "version": "1.0.0",
+  "description": "Aplikasi Photobooth TarasaBooth - MVP",
+  "scripts": {
+    "client": "cd client && npm run dev",
+    "server": "cd server && node index.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": ["photobooth", "tarasabooth"],
+  "author": "Your Name",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
